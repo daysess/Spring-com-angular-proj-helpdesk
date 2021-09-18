@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user.model';
 import { HELP_DESK_API } from './helpdesk.api'
+import { UserDTO } from '../model/userDTO.model';
 
 
 @Injectable({
@@ -11,8 +12,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  login(user: User){
-    return this.http.post(`${HELP_DESK_API}/login`, user);
+  login(userDTO: UserDTO){
+    return this.http.post(`${HELP_DESK_API}/login`, userDTO);
   }
 
   createOrUpdate(user:User){
